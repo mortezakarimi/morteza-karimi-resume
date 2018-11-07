@@ -48,7 +48,7 @@
 % Custom commands
 \newcommand{\resumeItem}[3][]{
   \item\small{
-    \textbf{#2}{\ifthenelse{\equal{#3}{}}{}{: #3} \vspace{-2pt}}{\begin{flushleft}\lr{\href{#1}{#1}}\end{flushleft}}
+    \textbf{#2}{\ifthenelse{\equal{#3}{}}{}{:\\#3} \vspace{-2pt}}{\begin{flushleft}\lr{\href{#1}{#1}}\end{flushleft}}
   }
 }
 
@@ -105,6 +105,9 @@
       {برنامه‌نویس وب}		
       {شهریور ۱۳۹۶ - تاکنون}		
       \resumeItemListStart
+      	\resumeItem{پیاده‌سازی پرتال شرکت کاما پوستر}{طراحی پرتال با استفاده از فریمورک \lr{Yii2}}
+		\resumeItem{پیاده‌سازی پرتال داخلی بیمه آسیا شعبه سبزوار}{طراحی پرتال با استفاده از فریمورک \lr{Yii2}}
+		\resumeItem[http://booma.ir]{طراحی سایت املاک بوما}{طراحی سایت با استفاده از فریمورک \lr{Yii2}}
         \resumeItem[https://shokufa.org]{طراحی سایت جشنواره آنلاین موسیقی شکوفا}{طراحی سایت با استفاده از فریمورک \lr{Yii2}}
         \resumeItem[http://rabaze.com]{سایت رابازه}{همکاری به صورت موقت در پیشرفت پروژه، این پروژه با استفاده از فریمورک \lr{Laravel} انجام شده است.}
       \resumeItemListEnd
