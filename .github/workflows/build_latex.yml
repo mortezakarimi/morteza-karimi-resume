@@ -6,6 +6,11 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
+      - name: Install fonts
+        working-directory: english
+        run: |
+          sudo cp -R fonts/**.ttf /usr/share/fonts/truetype/
+          sudo fc-cache -f -v
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@v0.2.0
         with:
