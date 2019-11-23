@@ -9,6 +9,6 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@v0.2.0
         with:
-          root_file: english/morteza-karimi-resume-en.tex
+          root_file: morteza-karimi-resume-en.tex
           working_directory: english
           args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
