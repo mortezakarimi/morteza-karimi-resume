@@ -6,14 +6,29 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
-      - name: Install fonts
-        working-directory: english
-        run: |
-          sudo cp -R fonts/**.ttf /usr/share/fonts/truetype/
-          sudo fc-cache -f -v
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@v0.2.0
         with:
           root_file: morteza-karimi-resume-en.tex
           working_directory: english
           args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./morteza-karimi-resume-en.pdf
+          asset_name: morteza-karimi-resume-en.pdf
+          asset_content_type: application/pdf
