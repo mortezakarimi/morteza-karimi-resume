@@ -2,5 +2,5 @@
 
 You can see my resume in following links:
 
-* [English Version](https://morteza-karimi.ir/morteza-karimi-resume/english/morteza-karimi-resume-en.pdf)
-* [Persian Version](https://morteza-karimi.ir/morteza-karimi-resume/morteza_karimi_resume_fa.pdf)
+* [English Version](https://github.com/mortezakarimi/morteza-karimi-resume/blob/master/english/morteza-karimi-resume-en.pdf)
+* [Persian Version](https://github.com/mortezakarimi/morteza-karimi-resume/blob/master/morteza_karimi_resume_fa.pdf)
