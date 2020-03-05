@@ -1,0 +1,5 @@
+name: texlive-full
+description: Run texlive-full
+runs:
+  using: 'docker'
+  image: 'docker://thomasweise/docker-texlive-full'
