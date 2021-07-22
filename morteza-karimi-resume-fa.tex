@@ -1,5 +1,6 @@
 % !TEX TS-program = xelatex
 % !TEX encoding = UTF-8 Unicode
+% !TeX spellcheck = fa_FA-Persian
 %-------------------------
 % Resume in Latex
 % Author : Sourabh Bajaj
@@ -7,27 +8,36 @@
 %------------------------
 
 \documentclass[letterpaper,12pt]{article}
-
+\usepackage{graphics}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{shapes,calc}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{dashrule}
 \usepackage{ifthen}
 \usepackage{xepersian}
-\settextfont[Scale=1]{IRANSansFaNum}
-
+\usepackage{pgffor}
+\settextfont[Scale=1]{IRANSansXFaNum}
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\graphicspath{{english/images/}}
 
+\newlength\imagewidth
+\newlength\imagescale
+\pgfmathsetlength{\imagewidth}{3cm}
+\pgfmathsetlength{\imagescale}{\imagewidth/600}
+\newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
+\profilepic{morteza.jpg}
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
@@ -59,7 +69,7 @@
     \begin{tabular*}{0.97\textwidth}{r@{\extracolsep{\fill}}l}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}
 }
 
 \renewcommand{\labelitemi}{$\bullet$}
@@ -75,63 +85,56 @@
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
 
+\begin{center}
+	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\clip (600/2, 600/2) circle (600/2);
+		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (1,0) {\includegraphics[width=\imagewidth]{\profilepic}};
+	\end{tikzpicture}
+\end{center}
 %----------HEADING-----------------
-\begin{tabular*}{\textwidth}{r@{\extracolsep{\fill}}l}
-  \textbf{\href{https://morteza-karimi.ir/}{\Large مرتضی کریمی}} & پست الکترونیک : \href{mailto:me@morteza-karimi.ir}{\lr{me@morteza-karimi.ir}}\\
+\begin{tabular*}{\textwidth}{r@{\extracolsep{\fill}}l}\bigskip
+  \textbf{\href{https://morteza-karimi.ir/}{\Large مرتضی کریمی}} & پست الکترونیک : \href{mailto:me@morteza-karimi.ir}{\lr{me@morteza-karimi.ir}}\\\medskip
   متولد: ۱۳۷۳/۲۷/۰۳ & وضعیت تاهل: متاهل\\
-  \href{https://morteza-karimi.ir/}{\lr{https://morteza-karimi.ir/}} & تلفن همراه : \lr{+98-921-635-1266} \\
+  \href{https://morteza-karimi.ir/}{\lr{https://morteza-karimi.ir/}} & تلفن همراه : \href{tel:+989216351266}{\lr{+98-921-635-1266}} \\
 \end{tabular*}
 
 
 %-----------EDUCATION-----------------
-\section{تحصیلات}
+\section{تحصیلات} \bigskip
   \resumeSubHeadingListStart
     \resumeSubheading
       {دانشگاه صنعتی شاهرود}{شاهرود، ایران}
-      {کارشناسی ارشد هوش مصنوعی؛  معدل ۱۶/۴۶}{شهریور ۱۳۹۶ - تاکنون}
+      {کارشناسی ارشد هوش مصنوعی؛  معدل ۱۶/۴۶}{شهریور ۱۳۹۶ - انصراف از تحصیل}
     \vspace{6pt}\\
     \small{\textbf{عنوان پایان‌نامه:} بازشناسی چهره با استفاده از شبکه عصبی کپسول}
     \resumeSubheading
       {دانشگاه خیام مشهد}{مشهد، ایران}
-      {کارشناسی مهندسی نرم افزار؛  معدل ۱۵/۴۷}{شهریور ۱۳۹۱- تیر ۱۳۹۶}
+      {کارشناسی مهندسی نرم افزار؛  معدل ۱۵/۴۷}{شهریور ۱۳۹۱ - تیر ۱۳۹۶}
   \resumeSubHeadingListEnd
 
-%-----------Artificial Intelligence-----------------
-\section{تجربیات هوش‌مصنوعی}
-\resumeSubHeadingListStart
-\item{
-	\textbf{شمارش تعداد و اندازه قطرات سیال و طراحی سیستم پیشبین برای  محاسبه اندازه قطره خروجی}{: در این پروژه با استفاده از زبان برنامه‌نویسی پایتون تعداد  و اندازه قطرات خروجی در سیستم آزمایشگاهی تشخیص و محاسبه گردید سپس با استفاده از پایگاه داده بدست آمده مدل پیشبین شبکه عمیق این‌ سیستم طراحی گردید تا بتوان با استفاده از پارامتر‌های ورودی تعداد و اندازه قطرات را پیشبینی نمود.}
-	\hfill
-}
-\item{
-	\textbf{پیاده‌سازی پروژه جدا سازی قطرات  روغن و آب}{: در این پروژه با استفاده از برنامه‌نویسی متلب، جداسازی و شمارش قطرات به طور خودکار با استفاده از مباحث پردازش تصویر انجام گرفت.}
-	\hfill
-}
-\item{
-	\textbf{تشخیص چهره با استفاده از یادگیری عمیق}{: در این پروژه با استفاده از روش‌های موجود در یادگیری عمیق تشخیص چهره با دقت بالا طراحی گردید.}
-}
-\item{
-	\textbf{تعقیب چهره در ویدئو}{: در این پروژه با استفاده از زبان برنامه‌نویسی پایتون در کتابخانه \lr{OpenCV} تعقیب کننده طراحی گردید تا چهره انتخابی را در تصویر تعقیب نمایید.}
-}
-\item{
-	\textbf{تشخیص پلاک خودرو در تصویر}{: در این پروژه که با استفاده از زبان برنامه‌نویسی پایتون ایجاد گردید در تصویر ورودی به محل پلاک خودرو تشخیص داده می‌شود.}
-}
-\item{
-	\textbf{بهبود کیفیت تصویر دارای نویز}{: در این پروژه با استفاده از برنامه‌نویسی نرم‌افزار متلب سعی شد بهبود کیفیت در تصویر دارای نویز انجام شود تا قابل استفاده برای پردازش‌های بعدی گردد.}
-}
-\resumeSubHeadingListEnd
 %-----------EXPERIENCE-----------------
-\section{تجربیات}
+\section{تجربیات} \bigskip
   \resumeSubHeadingListStart
 
+	\resumeSubheading
+		{\href{https://bugloos.com/}{باگلوس}}{تهران، ایران}{توسعه دهنده کامل وب و مهندس \lr{DevOps}}	{مرداد ۱۳۹۸ - مرداد ۱۴۰۰}
+		
+		من به عنوان توسعه‌دهنده \lr{Backend} در شرکت باگلوس شروع به کار کردم و بر روی پروژه‌های مختلفی در حوزه‌های مختلفی شامل کسب و کارهای آنلاین و اتوماسیون‌های اداری همکاری داشتم، در این مدت به بهبود الگوریتم‌های محاسباتی و زمان پاسخگویی درخواست‌های پایگاه داده پرداختم و همچنین به توسعه و رفع مشکل از بسته‌های نرم‌افزاری قدیمی موجود پرداختم.\\
+		بعد از حدود ۶ ماه نیاز به توسعه ظاهر با استفاده از انگولار را احساس نمودم و سعی کردم تسلط خودم را در این بخش بیشتر کنم پس ادامه مسیرم را در باگلوس به عنوان یک توسعه دهنده کامل سیستم همکاری خود را ادامه دارد، در این مدت بروی چند پروژه مختلف کار کردم و همچنین در تیمی شامل ۱۰ عضو همکاری خود را شروع کردم که به دلیل ساختار پروژه که با استفاده از معماری مایکرو سرویس ایجاد شده بود نیاز به نیروی \lr{DevOps} احساس می‌شد که بر آن شدم که علاوه بر توسعه دهنده سیستم به عنوان نیروی \lr{DevOps} نیز در پیشبرد پروژه کمک کنم.\\
+		\bigskip
+		
+		\textbf{تکنولوژی‌ها:}\medskip
+		\begin{latin}
+			PHP, Symfony, Angular, Yii2, Node.js, Bash Scripting, Gitlab CI/CD، GraphQL، JavaScript، Docker، Ansible، SCSS, Bootstrap, Mysql ...
+		\end{latin}
+
+		\hdashrule{\fill}{1pt}{1pt}
+
     \resumeSubheading
-      {\href{http://zagstudio.ir/}{استودیو طراحی زاگ}}
-		      {سبزوار، ایران}		
-      {برنامه‌نویس وب}		
-      {شهریور ۱۳۹۶ - تاکنون}		
+      {\href{http://zagstudio.ir/}{استودیو طراحی زاگ}}{سبزوار، ایران}{برنامه‌نویس وب}{شهریور ۱۳۹۶ - اسفند ۱۳۹۷}		
+      
       \resumeItemListStart
       	\resumeItem[http://portal.kamaposter.com]{پیاده‌سازی پرتال شرکت کاما پوستر}{طراحی پرتال با استفاده از فریمورک \lr{Yii2}}
 		\resumeItem[http://bimehasiakarimi.com]{پیاده‌سازی پرتال داخلی بیمه آسیا شعبه سبزوار}{طراحی پرتال با استفاده از فریمورک \lr{Yii2}}
@@ -155,7 +158,7 @@
       
       \hdashrule{\fill}{1pt}{1pt}
       
-    \resumeSubheading{سایر پروژه‌ها}{سبزوار، ایران}{برنامه‌نویس وب}{فروردین ۱۳۹۲ - تاکنون}
+    \resumeSubheading{سایر پروژه‌ها}{سبزوار، ایران}{برنامه‌نویس وب}{فروردین ۱۳۹۲ - مرداد ۱۳۹۸}
       \resumeItemListStart
         \resumeItem
         [https://promac.ir]{سایت شرکت پروماک}{طراحی سایت با استفاده از فریمورک \lr{Yii2}}
@@ -172,26 +175,47 @@
   \resumeSubHeadingListEnd
 
 
+%-----------Artificial Intelligence-----------------
+\section{تجربیات هوش‌مصنوعی}\bigskip
+\resumeSubHeadingListStart
+\item{
+	\textbf{شمارش تعداد و اندازه قطرات سیال و طراحی سیستم پیش‌بین برای  محاسبه اندازه قطره خروجی}{: در این پروژه با استفاده از زبان برنامه‌نویسی پایتون تعداد  و اندازه قطرات خروجی در سیستم آزمایشگاهی تشخیص و محاسبه گردید سپس با استفاده از پایگاه داده بدست آمده مدل پیش‌بین شبکه عمیق این سیستم طراحی گردید تا بتوان با استفاده از پارامترهای ورودی تعداد و اندازه قطرات را پیش‌بینی نمود.}
+	\hfill
+}
+\item{
+	\textbf{پیاده‌سازی پروژه جدا سازی قطرات  روغن و آب}{: در این پروژه با استفاده از برنامه‌نویسی متلب، جداسازی و شمارش قطرات به طور خودکار با استفاده از مباحث پردازش تصویر انجام گرفت.}
+	\hfill
+}
+\item{
+	\textbf{تشخیص چهره با استفاده از یادگیری عمیق}{: در این پروژه با استفاده از روش‌های موجود در یادگیری عمیق تشخیص چهره با دقت بالا طراحی گردید.}
+}
+\item{
+	\textbf{تعقیب چهره در ویدئو}{: در این پروژه با استفاده از زبان برنامه‌نویسی پایتون در کتابخانه \lr{OpenCV} تعقیب کننده طراحی گردید تا چهره انتخابی را در تصویر تعقیب نمایید.}
+}
+\item{
+	\textbf{تشخیص پلاک خودرو در تصویر}{: در این پروژه که با استفاده از زبان برنامه‌نویسی پایتون ایجاد گردید در تصویر ورودی به محل پلاک خودرو تشخیص داده می‌شود.}
+}
+\item{
+	\textbf{بهبود کیفیت تصویر دارای نویز}{: در این پروژه با استفاده از برنامه‌نویسی نرم‌افزار متلب سعی شد بهبود کیفیت در تصویر دارای نویز انجام شود تا قابل استفاده برای پردازش‌های بعدی گردد.}
+}
+\resumeSubHeadingListEnd
 %-----------PROJECTS-----------------
 %\section{پروژه‌ها}
 
 %
 %--------PROGRAMMING SKILLS------------
-\section{مهارت‌های برنامه‌نویسی}
-  \resumeSubHeadingListStart
-    \item{
-      \textbf{زبان‌ها}{:\begin{latin}PHP, Python, Javascript, SQL, Matlab, C++, HTML, CSS, SCSS, TypeScript\end{latin}}
-      \hfill
-      }
-    \item{
-      \textbf{فریمورک‌های وب}{:\begin{latin} Yii2, Laravel, Yii, Bootstrap, JQuery, Angular\end{latin}}
-      \hfill
-      }
-     \item{
-      \textbf{کتابخانه‌های پایتون}{:\begin{latin} Numpy, Keras, Pandas, OpenCV
-\end{latin}}
-	}
-  \resumeSubHeadingListEnd
+\section{مهارت‌های فنی}\bigskip
+      \begin{latin}
+      		\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccr}\bigskip
+      			PHP & Python & Javascript & SQL & Angular & \\ \bigskip
+      			Matlab & C++ & HTML & CSS & SCSS &  \\ \bigskip
+      			TypeScript & Symfony  & Yii2 & Yii & Laravel  & \\ \bigskip
+      			Node.Js & React & Graphql &  Bootstrap & JQuery & \\ \bigskip
+      			Numpy & Keras & Pandas & OpenCV & Tensorflow & \\ \bigskip
+      			Docker & Bash Scripting & Ansible & Nginx & Apache2 & \\ \bigskip
+      			Git & Network+ & Redis & MTCNA & MCITP & 
+      		\end{tabular*}%
+  \end{latin}
 %-------------------------------------------
 
 \end{document}
