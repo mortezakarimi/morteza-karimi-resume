@@ -1,8 +1,9 @@
 % !TEX TS-program = xelatex
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,10pt,hidelinks]{article}
 \usepackage{latexsym}
+\usepackage{bookmark}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
@@ -21,7 +22,6 @@
 \usepackage{parskip}
 \usepackage[absolute,overlay]{textpos}
 \usepackage[left=7.6cm,top=1cm,right=1cm,bottom=0.8cm,nohead,nofoot]{geometry}
-\usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{setspace}
 \usepackage{ifthen}
@@ -102,7 +102,7 @@
 %%%%%%%%%%%%%%%%%%%% Side Section Rule %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \newcommand{\siderule}{
 	\vspace*{0.5\baselineskip}
-	\hrule\@height 2pt
+	\hrule\@height 1pt
 	\vspace*{0.5\baselineskip}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Content Item %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,7 +140,7 @@
 \newcommand{\makeprofile}{
 	%%%%%%%%%%%%% side background %%%%%%%%%%%%%%%%%%%%%
 	\begin{tikzpicture}[remember picture,overlay]
-	\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-6cm,1.5cm){};
+	\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight + 1cm] (box) at (-6cm,2cm){};
 	\end{tikzpicture}
 	%%%%%%%%%%%%%%% text block %%%%%%%%%%%%%%%%%%%%%
 	\begin{textblock}{5}(0.5, 0.2)
@@ -161,26 +161,26 @@
 					% \contactItem{\faBirthdayCake}{\birthdate}
 					% \contactItem{\faRing}{Married}
 					\contactItem[tel:+989216351266 ]{\faMobile*}{+98 921 635 1266}
-					\contactItem[https://goo.gl/maps/z7LKhZyUGhdiq1KSA]{\faMapMarker*}{Tehran, Iran}
+					\contactItem[https://goo.gl/maps/jYxSpCQwgsqPfagbA?coh=178571\&entry=tt]{\faMapMarker*}{Tehran, Iran}
 					\contactItem[https://morteza-karimi.ir]{\faGlobe}{morteza-karimi.ir}
 					\contactItem[mailto:me@morteza-karimi.ir]{\faEnvelope}{me@morteza-karimi.ir}
 					\contactItem[https://www.linkedin.com/in/MortezaKarimi]{\faLinkedin}{MortezaKarimi}
 					\contactItem[https://github.com/MortezaKarimi]{\faGithub}{MortezaKarimi}
-					\contactItem[https://stackoverflow.com/story/MortezaKarimi]{\faStackOverflow}{MortezaKarimi}
+					\contactItem[https://stackoverflow.com/users/3307768/mortie]{\faStackOverflow}{MortezaKarimi}
 				\end{tabular}
 			\end{spacing}
-			\vspace*{-0.3\baselineskip}
+			\vspace*{-0.4\baselineskip}
 			%%%%%%%%%%%%%%%%%%%% Hard Skills Section %%%%%%%%%%%%%%%
 			\section*{Hard Skills}\siderule
-			\vspace*{-.4\baselineskip}
+			\vspace*{-0.4\baselineskip}
 			\begin{spacing}{1.5}
 				\skillItem{PHP}{4}
-				\skillItem{Symfony 4}{4}
-				\skillItem{Yii2}{4}
+				\skillItem{Symfony}{4}
 				\skillItem{Ansible}{4}
 				\skillItem{Angular}{4}
-				\skillItem{JavaScript}{3}
 				\skillItem{Docker}{3}
+				\skillItem{JavaScript}{3}
+				\skillItem{Yii2}{4}
 				\skillItem{Gitlab CI/CD}{2}			
 				\skillItem{Laravel}{2}
 				\skillItem{Python}{2}
@@ -237,32 +237,28 @@
 	{\Huge\janeroe \textbf{\@author}}\\[0.2\baselineskip]
 	{\large\janeroe\@title}
 	\section*{About Me}\hrule
-	I'm a flexible learner and detail-oriented individual with valuable experience in different fields such as Web Developing, Deep learning, Networking, Linux, Windows...\\
-As a boy with teamwork character, I always work side by side with a team in all companies at which I have worked.\\
-I extremely enjoy new experiences and challenges. In other words, I prefer to follow new challenges instead of routine works. The quote "Either try as hard as you wish or wish as hard as you try" has been always my motto.\\
-By the way reputation for creativity, problem-solving, hard-working, and team working are the highlights of my character.
+	I am a \textbf{detail-oriented} and \textbf{flexible learner} with extensive experience in various fields such as \textbf{Web Development}, Deep Learning, Networking, \textbf{Linux}, \textbf{Windows}, and more. As a \textbf{team player}, I enjoy working alongside others to achieve common goals. I am always seeking new experiences and challenges, preferring to take on new and exciting projects rather than routine work. My reputation for \textbf{creativity}, \textbf{problem-solving}, \textbf{hard work}, and teamwork is a testament to my character. I have mastered \textbf{Symfony framework} and \textbf{Node.js}, which has given me the ability to develop and improve complex projects. For instance, in my previous job, I worked on \textbf{Microservice architecture} and introduced modern and automated solutions using \textbf{Docker}, \textbf{Ansible}, and \textbf{Gitlab CI/CD} to increase productivity and efficiency. My passion for learning led me to expand my skill set by mastering \textbf{Angular}, which elevated my position in Bugloss Company from a backend developer to a full-stack developer. During my time at Heyzha Company, I designed and developed complicated portals using \textbf{Laravel} and \textbf{Yii2} frameworks.
 	
 	\vspace*{-1\baselineskip}
 	\section*{Experience}\hrule
 	\resumeItem[https://bugloos.com/]{Bugloos}{Junior DevOps Engineer}{Iran, Tehran}{2021 - Present}{
-		According to one of our projects that were based on Microservice architecture and our team’s needs, I felt that we need more modern and new ways to develop and improve our project. So as I had basic knowledge in Docker and Ansible fields, I tried to make some automatic solutions in project architecture. I used Gitlab CI/CD to reduce the volume of repetitive daily tasks so I helped the company and project to develop it and also as a DevOps engineer I supervise on project’s development and Operation.
+		As a Fullstack Developer, I felt the need to research and work in the DevOps field. So, after some time, I started working as a Junior DevOps Engineer with the Bugloos company. I supervised the development and operation of the projects and tried to make some automatic solutions in the project architecture. To reduce the volume of repetitive daily tasks, I used Gitlab CI/CD, which helped the company and project to develop and improve.
 	}
 	\resumeItem[https://bugloos.com/]{Bugloos}{Full-Stack Web developer}{Iran, Tehran}{2020 - Present}{
-		I worked as a developer in Bugloss company but after 6 months I felt we needed more knowledge about Angular to develop the company’s project faster and better than in the past. So I started to learn Angular and worked on different case studies until I mastered that and improved my job position in Bugloss from backend developer to Fullstack developer. I tried to share my knowledge with my teammates and tried to make a better structure for developing the company’s project. The structure I made caused me to have a good effect to do more tasks with the best quality in less time in each release. After this good experience for myself improvement, I tried to research and work in the DevOps field so after some time I could have corporate in this field too with the Bugloos company.
+		After working as a Backend Developer for 6 months, I felt the need to learn Angular to develop the company's project faster and better. I started to learn Angular and worked on different case studies until I had mastered it. This effort helped me to improve my job position in Bugloos from a Backend Developer to a Fullstack Developer. I shared my knowledge with my teammates and tried to make a better structure for developing the company's project, which resulted in a good impact on the quality of work in each release.
 	}
 	
 	\newpage
 	\makeprofile
-
 	\resumeItem[https://bugloos.com/]{Bugloos}{Back-End Web developer}{Iran, Tehran}{2019 - 2020}{
-		I start my work in Bugloos as a backend developer and work on some projects with different domains some like e-commerce and portals. try to improve project calculation algorithms, improve query response time for projects, and also improve deprecated bundles and extensions. also, we try to improve workflow for projects to get more efficient releases.
+		I started my work at Bugloos as a Backend Developer, where I worked on various projects with different domains, such as e-commerce and portals. My responsibilities included improving project calculation algorithms, enhancing query response time, and also updating deprecated bundles and extensions. Additionally, I worked on improving the workflow for the projects, which resulted in more efficient releases.
 	}
 	\resumeItem[http://heyzha.ir/]{Heyzha Programming Co}{Web Application Developer}{Iran, Sabzevar}{2017 - 2019}{
-		Cooperation with Heyzha company was a great spark for success in my work life. I did lots of project in this company. At first I started my work with solving the problems of a website with Laravel framework. Also I developed other websites with Yii2 framework and it followed a great impact because it caused 33\%  improvement in all the projects of Heyzha company. In the same way the income of company for developing more and more projects had improved, So the company experienced an up ward trend. By the way I experienced such a great challenges in designing complicated portals.
+		I had the opportunity to work on numerous projects, which proved to be a turning point in my career. My work initially involved resolving issues on a website using Laravel framework. I also developed other websites utilizing Yii2 framework, resulting in a significant 33\% improvement across all Heyzha company projects. This led to a considerable increase in the company's income, and its business continued to experience an upward trend. The experience allowed me to tackle complex challenges in designing intricate portals, which further developed my skill set as a Web Developer. Overall, my time at Heyzha was an invaluable experience that sharpened my expertise in web development and enhanced my problem-solving abilities.
 	}
 	
 	\resumeItem[http://khayyam.ac.ir/]{Khayyam University of Mashhad}{Back-End Web developer}{Iran, Mashhad}{2014 - 2016}{
-		In Khayyam university I had a game project. Its name was tik-tak-toe that was in relation with IOS app. For developing it, I used node.js platform and socket.io library. Also I experience a team work project in this university. It was developing Khayyam university culture center website. Actually because of my good background in bachelor final project, use node.js and PHP together, this great project was given to me.
+		As a Back-End Web Developer at Khayyam University of Mashhad, I developed a game project called "tik-tak-toe" using node.js platform and socket.io library for IOS app. Additionally, I led a team in developing the university culture center website, leveraging my previous experience in using node.js and PHP together in my bachelor's final project.
 	}
 	\resumeItem{Freelance Experience}{Full-Stack Web developer}{Iran, Mashhad}{2012 - Present}{
 		\begin{itemize}[leftmargin=*]
@@ -296,7 +292,9 @@ By the way reputation for creativity, problem-solving, hard-working, and team wo
 
 	\section*{Education}\hrule
 	\resumeSubHeadingListStart
-	\resumeSubheading{Shahrood University of Technology}{2017 - Present}{Master of Science in Artificial Intelligence; GPA: 3.77 (16.46/20)}
+	\resumeSubheading{Shahrood University of Technology}{2017 - 2019}{Master of Science in Artificial Intelligence; GPA: 3.77 (16.46/20)}
+	\small\textcolor{bootstrapSecondary}{Was unable to complete my thesis due to mandatory military service obligations.}
+	\\
 	\resumeSubheading{Khayyam University of Mashhad}{2012 - 2017}{Bachelor of Engineering in Software Engineering; GPA: 3.17 (15.47/20)}
 	\resumeSubHeadingListEnd
 \end{document}
