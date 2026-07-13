@@ -155,19 +155,43 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % Awesome section color
-\def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+% Persian adaptation: color the whole title instead of the first 3 letters,
+% because coloring individual letters breaks Arabic-script letter joining
+\def\@sectioncolor#1{%
+  \ifbool{acvSectionColorHighlight}{\textcolor{awesome}{#1}}{#1}%
 }
 
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\footerfont}{\sourcesanspro}
-\newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
+% Persian adaptation: use Vazirmatn (covers both Persian and Latin glyphs)
+% Loaded by filename so it works regardless of how the OS registers family names
+\newfontfamily\vazirfont[
+  Path=/Library/Fonts/,
+  UprightFont=Vazirmatn-Regular.ttf,
+  BoldFont=Vazirmatn-Bold.ttf,
+  ItalicFont=Vazirmatn-Regular.ttf,
+  ItalicFeatures={FakeSlant=0.2},
+  BoldItalicFont=Vazirmatn-Bold.ttf,
+  BoldItalicFeatures={FakeSlant=0.2},
+  Script=Arabic
+]{Vazirmatn}
+\newfontfamily\vazirfontlight[
+  Path=/Library/Fonts/,
+  UprightFont=Vazirmatn-Light.ttf,
+  BoldFont=Vazirmatn-SemiBold.ttf,
+  ItalicFont=Vazirmatn-Light.ttf,
+  ItalicFeatures={FakeSlant=0.2},
+  BoldItalicFont=Vazirmatn-SemiBold.ttf,
+  BoldItalicFeatures={FakeSlant=0.2},
+  Script=Arabic
+]{Vazirmatn Light}
+\newcommand*{\headerfont}{\vazirfont}
+\newcommand*{\headerfontlight}{\vazirfontlight}
+\newcommand*{\footerfont}{\vazirfontlight}
+\newcommand*{\bodyfont}{\vazirfont}
+\newcommand*{\bodyfontlight}{\vazirfontlight}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
@@ -181,7 +205,7 @@
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor{#1}}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
@@ -210,7 +234,7 @@
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
 
 % For elements of the cover letter
-\newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor{#1}}}
 \newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
@@ -661,19 +685,22 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+% Persian adaptation: the original tabular* layout loses its column-filling
+% glue under xepersian/bidi, gluing the columns together. Plain \hfill lines
+% are bidi-safe and produce the same two-column look.
 \newcommand*{\cventry}[5]{%
   \vspace{2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{minipage}{\textwidth}
+    \setlength{\parskip}{0pt}
     \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrypositionstyle{#1}\hfill\entrydatestyle{#4}\endgraf}
+      {\entrytitlestyle{#2}\hfill\entrylocationstyle{#3}\endgraf
+       \vspace{0.3mm}
+       \entrypositionstyle{#1}\hfill\entrydatestyle{#4}\endgraf}
     \ifstrempty{#5}
       {}
-      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
-  \end{tabular*}%
+      {\vspace{0.5mm}\descriptionstyle{#5}\endgraf}
+  \end{minipage}%
 }
 
 % Define an environment for cvsubentry
@@ -737,8 +764,9 @@
 }
 
 % Define an environment for cvitems(for cventry)
+% Persian adaptation: no negative skips (entries use flow layout, not tabular)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{0.5mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -746,7 +774,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{-1.0mm}
 }
 
 

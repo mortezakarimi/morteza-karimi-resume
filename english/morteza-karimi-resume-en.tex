@@ -50,14 +50,15 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-\photo{./images/morteza.jpg}
+% Photo removed for ATS compatibility (parsers can misread image-adjacent text
+% and many companies auto-reject photos for bias-compliance reasons)
+% \photo{./images/morteza.jpg}
 \name{Morteza}{Karimi}
-\position{Team Leader{\enskip\cdotp\enskip}Full Stack Developer{\enskip\cdotp\enskip}DevOps Engineer}
+\position{Full Stack Developer{\enskip\cdotp\enskip}Team Lead{\enskip\cdotp\enskip}DevOps Engineer}
 \address{Tehran, Iran}
 
 \mobile{(+98) 921-635-1266}
 \email{me@morteza-karimi.com}
-\dateofbirth{June 17th, 1994}
 \github{mortezakarimi}
 \linkedin{mortezakarimi}
 \homepage{morteza-karimi.com}
@@ -74,7 +75,13 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
-\quote{``Either try as hard as you wish or wish as hard as you try."}
+% PDF metadata: some ATS platforms read document properties for indexing
+\hypersetup{%
+  pdftitle={Morteza Karimi - Full Stack Developer Resume},
+  pdfauthor={Morteza Karimi},
+  pdfsubject={Resume - Full Stack Developer, Team Lead, DevOps Engineer},
+  pdfkeywords={Full Stack Developer, Backend Developer, Team Lead, DevOps Engineer, PHP, Laravel, Symfony, JavaScript, TypeScript, Node.js, NestJS, Next.js, React, Angular, Go, Golang, Kubernetes, Docker, CI/CD, AWS, Microservices, MySQL, PostgreSQL, MongoDB, Redis}
+}
 
 
 %-------------------------------------------------------------------------------
@@ -96,6 +103,7 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
+\input{cv/summary.tex}
 \input{cv/skills.tex}
 \input{cv/experience.tex}
 %\input{cv/extracurricular.tex}

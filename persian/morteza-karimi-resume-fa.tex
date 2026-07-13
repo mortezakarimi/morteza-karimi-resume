@@ -1,0 +1,77 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Persian version of the Awesome CV resume, mirroring english/morteza-karimi-resume-en.tex
+%
+% Template: https://github.com/posquit0/Awesome-CV (CC BY-SA 4.0)
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Color for highlights
+\definecolor{awesome-mortie}{HTML}{52D2A9}
+\colorlet{awesome}{awesome-mortie}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% Social information separator
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% xepersian must be loaded after every other package
+\usepackage{xepersian}
+\settextfont[Scale=1, Path=/Library/Fonts/, BoldFont=Vazirmatn-Bold.ttf]{Vazirmatn-Regular.ttf}
+\setlatintextfont[Scale=1, Path=/Library/Fonts/, BoldFont=Vazirmatn-Bold.ttf]{Vazirmatn-Regular.ttf}
+\setdigitfont[Path=/Library/Fonts/, BoldFont=Vazirmatn-Bold.ttf]{Vazirmatn-Regular.ttf}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{مرتضی}{کریمی}
+\position{توسعه‌دهنده فول‌استک{\enskip\cdotp\enskip}سرپرست تیم{\enskip\cdotp\enskip}مهندس دوآپس}
+\address{تهران، ایران}
+
+\mobile{\lr{(+98) 921-635-1266}}
+\email{me@morteza-karimi.com}
+\github{mortezakarimi}
+\linkedin{mortezakarimi}
+\homepage{morteza-karimi.com}
+\stackoverflow{3307768}{Mortie}
+
+% PDF metadata
+\hypersetup{%
+  pdftitle={مرتضی کریمی - رزومه توسعه‌دهنده فول‌استک},
+  pdfauthor={مرتضی کریمی},
+  pdfsubject={رزومه - توسعه‌دهنده فول‌استک، سرپرست تیم، مهندس دوآپس},
+  pdfkeywords={Full Stack Developer, Team Lead, DevOps Engineer, PHP, Laravel, Symfony, TypeScript, Node.js, NestJS, Next.js, React, Angular, Go, Kubernetes, Docker, CI/CD, AWS}
+}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+\makecvfooter
+  {\today}
+  {}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%-------------------------------------------------------------------------------
+\input{cv/summary.tex}
+\input{cv/skills.tex}
+\input{cv/experience.tex}
+\input{cv/education.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}
